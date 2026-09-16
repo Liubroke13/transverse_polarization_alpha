@@ -7,10 +7,9 @@
   
   <!-- KaTeX for fast, error-free LaTeX rendering -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body);"></script>
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
   
   <style>
     body {
@@ -29,55 +28,62 @@
     }
 
     .slide-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      text-align: center;
       margin-bottom: 4px;
     }
 
     .slide-subtitle {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      text-align: center;
       margin-top: 0;
       margin-bottom: 16px;
     }
 
-    /* Grid Layout */
+    /* 6x5 CSS Grid Setup */
     .animation-grid {
       display: grid;
-      grid-template-columns: 140px repeat(4, 1fr);
+      grid-template-columns: 80px 80px repeat(4, 1fr);
+      grid-template-rows: 40px 40px repeat(3, 1fr);
       border: 1px solid #ffffff;
       background-color: #ffffff;
     }
 
-    /* Headers & Labels */
-    .header-cell, .label-cell, .corner-cell {
-      background-color: #f2a47e;
+    /* Shared styling */
+    .grid-cell {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.25rem;
       border: 1px solid #ffffff;
-      padding: 10px;
+      font-size: 1.3rem;
     }
 
-    .header-content, .label-content {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .corner-cell {
-      background-color: #e6956c;
-    }
-
-    .badge {
-      background-color: #8c8c8c;
+    /* Grey Banners */
+    .grey-banner {
+      background-color: #a6a6a6;
       color: #ffffff;
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-size: 1rem;
-      box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      font-weight: bold;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
     }
 
-    /* Video Cells & Badges */
+    /* Spanning Rules for Grey Banners */
+    .sigma-top {
+      grid-column: 3 / span 4;
+      grid-row: 1;
+    }
+
+    .sigma-left {
+      grid-column: 1;
+      grid-row: 3 / span 3;
+    }
+
+    /* Orange Headers & Labels */
+    .orange-cell {
+      background-color: #f2a47e;
+      font-weight: bold;
+    }
+
+    /* Video Cells & Overlays */
     .video-cell {
       background-color: #333333;
       border: 1px solid #ffffff;
@@ -109,44 +115,24 @@
 <body>
 
 <div class="slide-container">
-  <div class="slide-title">In the below animations : $lpha = 0, eta = rac{\pi}{2}$</div>
+  <div class="slide-title">In the below animations : $\alpha = 0, \beta = \frac{\pi}{2}$</div>
   <div class="slide-subtitle">(animations are plotted <strong>without</strong> the approximation)</div>
 
   <div class="animation-grid">
-    <!-- Top Row: Empty Corner + Primed Column Headers -->
-    <div class="corner-cell"></div>
-    <div class="header-cell">
-      <div class="header-content">
-        <div class="badge">$\sigma' = -1$</div>
-        <div>$\ell' = -1$</div>
-      </div>
-    </div>
-    <div class="header-cell">
-      <div class="header-content">
-        <div class="badge">$\sigma' = -1$</div>
-        <div>$\ell' = 0$</div>
-      </div>
-    </div>
-    <div class="header-cell">
-      <div class="header-content">
-        <div class="badge">$\sigma' = -1$</div>
-        <div>$\ell' = 1$</div>
-      </div>
-    </div>
-    <div class="header-cell">
-      <div class="header-content">
-        <div class="badge">$\sigma' = -1$</div>
-        <div>$\ell' = 2$</div>
-      </div>
-    </div>
+    <!-- Row 1: Top Spanning Grey Banner -->
+    <div class="grid-cell grey-banner sigma-top">$\sigma' = -1$</div>
 
-    <!-- Row 1: l = -1 -->
-    <div class="label-cell">
-      <div class="label-content">
-        <div class="badge">$\sigma = 1$</div>
-        <div>$\ell = -1$</div>
-      </div>
-    </div>
+    <!-- Row 2: Column Headers -->
+    <div class="grid-cell orange-cell" style="grid-column: 3;">$\ell' = -1$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 4;">$\ell' = 0$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 5;">$\ell' = 1$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 6;">$\ell' = 2$</div>
+
+    <!-- Left Vertical Spanning Grey Banner -->
+    <div class="grid-cell grey-banner sigma-left">$\sigma = 1$</div>
+
+    <!-- Row 3: l = -1 -->
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 3;">$\ell = -1$</div>
     <div class="video-cell">
       <video src="l_-1_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">$\Delta\ell = 0$</div>
@@ -164,13 +150,8 @@
       <div class="dl-label">3</div>
     </div>
 
-    <!-- Row 2: l = 0 -->
-    <div class="label-cell">
-      <div class="label-content">
-        <div class="badge">$\sigma = 1$</div>
-        <div>$\ell = 0$</div>
-      </div>
-    </div>
+    <!-- Row 4: l = 0 -->
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 4;">$\ell = 0$</div>
     <div class="video-cell">
       <video src="l_0_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;1</div>
@@ -188,13 +169,8 @@
       <div class="dl-label">2</div>
     </div>
 
-    <!-- Row 3: l = 1 -->
-    <div class="label-cell">
-      <div class="label-content">
-        <div class="badge">$\sigma = 1$</div>
-        <div>$\ell = 1$</div>
-      </div>
-    </div>
+    <!-- Row 5: l = 1 -->
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 5;">$\ell = 1$</div>
     <div class="video-cell">
       <video src="l_1_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;2</div>
