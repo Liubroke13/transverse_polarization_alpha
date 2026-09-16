@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VVB Wave Animations</title>
   
-  <!-- MathJax for rendering exact LaTeX math font styles -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- KaTeX for fast, error-free LaTeX rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);"></script>
   
   <style>
     body {
@@ -50,23 +53,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       border: 1px solid #ffffff;
       padding: 10px;
     }
 
+    .header-content, .label-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .corner-cell {
-      flex-direction: column;
-      gap: 8px;
+      background-color: #e6956c;
     }
 
     .badge {
       background-color: #8c8c8c;
       color: #ffffff;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 4px;
-      font-size: 1.1rem;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-size: 1rem;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
     /* Video Cells & Badges */
@@ -101,25 +109,47 @@
 <body>
 
 <div class="slide-container">
-  <div class="slide-title">In the below animations : \(lpha = 0, eta = rac{\pi}{2}\)</div>
+  <div class="slide-title">In the below animations : $lpha = 0, eta = rac{\pi}{2}$</div>
   <div class="slide-subtitle">(animations are plotted <strong>without</strong> the approximation)</div>
 
   <div class="animation-grid">
-    <!-- Top Row: Corner + Column Headers -->
-    <div class="corner-cell">
-      <div class="badge">\(\sigma' = -1\)</div>
-      <div class="badge">\(\sigma = 1\)</div>
+    <!-- Top Row: Empty Corner + Primed Column Headers -->
+    <div class="corner-cell"></div>
+    <div class="header-cell">
+      <div class="header-content">
+        <div class="badge">$\sigma' = -1$</div>
+        <div>$\ell' = -1$</div>
+      </div>
     </div>
-    <div class="header-cell">\(\ell' = -1\)</div>
-    <div class="header-cell">\(\ell' = 0\)</div>
-    <div class="header-cell">\(\ell' = 1\)</div>
-    <div class="header-cell">\(\ell' = 2\)</div>
+    <div class="header-cell">
+      <div class="header-content">
+        <div class="badge">$\sigma' = -1$</div>
+        <div>$\ell' = 0$</div>
+      </div>
+    </div>
+    <div class="header-cell">
+      <div class="header-content">
+        <div class="badge">$\sigma' = -1$</div>
+        <div>$\ell' = 1$</div>
+      </div>
+    </div>
+    <div class="header-cell">
+      <div class="header-content">
+        <div class="badge">$\sigma' = -1$</div>
+        <div>$\ell' = 2$</div>
+      </div>
+    </div>
 
     <!-- Row 1: l = -1 -->
-    <div class="label-cell">\(\ell = -1\)</div>
+    <div class="label-cell">
+      <div class="label-content">
+        <div class="badge">$\sigma = 1$</div>
+        <div>$\ell = -1$</div>
+      </div>
+    </div>
     <div class="video-cell">
       <video src="l_-1_lp_-1.mp4" autoplay loop muted playsinline></video>
-      <div class="dl-label">\(\Delta\ell = 0\)</div>
+      <div class="dl-label">$\Delta\ell = 0$</div>
     </div>
     <div class="video-cell">
       <video src="l_-1_lp_0.mp4" autoplay loop muted playsinline></video>
@@ -135,7 +165,12 @@
     </div>
 
     <!-- Row 2: l = 0 -->
-    <div class="label-cell">\(\ell = 0\)</div>
+    <div class="label-cell">
+      <div class="label-content">
+        <div class="badge">$\sigma = 1$</div>
+        <div>$\ell = 0$</div>
+      </div>
+    </div>
     <div class="video-cell">
       <video src="l_0_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;1</div>
@@ -154,7 +189,12 @@
     </div>
 
     <!-- Row 3: l = 1 -->
-    <div class="label-cell">\(\ell = 1\)</div>
+    <div class="label-cell">
+      <div class="label-content">
+        <div class="badge">$\sigma = 1$</div>
+        <div>$\ell = 1$</div>
+      </div>
+    </div>
     <div class="video-cell">
       <video src="l_1_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;2</div>
