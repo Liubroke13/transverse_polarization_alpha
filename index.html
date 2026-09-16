@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VVB Wave Animations</title>
   
-  <!-- KaTeX for fast, error-free LaTeX rendering -->
+  <!-- KaTeX CSS for formatting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
     onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
-  
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,6 +56,7 @@
       align-items: center;
       border: 1px solid #ffffff;
       font-size: 1.3rem;
+      font-style: italic;
     }
 
     /* Grey Banners */
@@ -64,6 +65,7 @@
       color: #ffffff;
       font-weight: bold;
       box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+      font-style: normal;
     }
 
     /* Spanning Rules for Grey Banners */
@@ -109,33 +111,34 @@
       font-weight: bold;
       pointer-events: none;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      font-style: normal;
     }
   </style>
 </head>
 <body>
 
 <div class="slide-container">
-  <div class="slide-title">In the below animations : $\alpha = 0, \beta = \frac{\pi}{2}$</div>
+  <div class="slide-title">In the below animations : &alpha; = 0, &beta; = &pi;/2</div>
   <div class="slide-subtitle">(animations are plotted <strong>without</strong> the approximation)</div>
 
   <div class="animation-grid">
     <!-- Row 1: Top Spanning Grey Banner -->
-    <div class="grid-cell grey-banner sigma-top">$\sigma' = -1$</div>
+    <div class="grid-cell grey-banner sigma-top">&sigma;' = &minus;1</div>
 
     <!-- Row 2: Column Headers -->
-    <div class="grid-cell orange-cell" style="grid-column: 3;">$\ell' = -1$</div>
-    <div class="grid-cell orange-cell" style="grid-column: 4;">$\ell' = 0$</div>
-    <div class="grid-cell orange-cell" style="grid-column: 5;">$\ell' = 1$</div>
-    <div class="grid-cell orange-cell" style="grid-column: 6;">$\ell' = 2$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 3;">&ell;' = &minus;1</div>
+    <div class="grid-cell orange-cell" style="grid-column: 4;">&ell;' = 0</div>
+    <div class="grid-cell orange-cell" style="grid-column: 5;">&ell;' = 1</div>
+    <div class="grid-cell orange-cell" style="grid-column: 6;">&ell;' = 2</div>
 
     <!-- Left Vertical Spanning Grey Banner -->
-    <div class="grid-cell grey-banner sigma-left">$\sigma = 1$</div>
+    <div class="grid-cell grey-banner sigma-left">&sigma; = 1</div>
 
     <!-- Row 3: l = -1 -->
-    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 3;">$\ell = -1$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 3;">&ell; = &minus;1</div>
     <div class="video-cell">
       <video src="l_-1_lp_-1.mp4" autoplay loop muted playsinline></video>
-      <div class="dl-label">$\Delta\ell = 0$</div>
+      <div class="dl-label">&Delta;&ell; = 0</div>
     </div>
     <div class="video-cell">
       <video src="l_-1_lp_0.mp4" autoplay loop muted playsinline></video>
@@ -151,7 +154,7 @@
     </div>
 
     <!-- Row 4: l = 0 -->
-    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 4;">$\ell = 0$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 4;">&ell; = 0</div>
     <div class="video-cell">
       <video src="l_0_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;1</div>
@@ -170,7 +173,7 @@
     </div>
 
     <!-- Row 5: l = 1 -->
-    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 5;">$\ell = 1$</div>
+    <div class="grid-cell orange-cell" style="grid-column: 2; grid-row: 5;">&ell; = 1</div>
     <div class="video-cell">
       <video src="l_1_lp_-1.mp4" autoplay loop muted playsinline></video>
       <div class="dl-label">&minus;2</div>
